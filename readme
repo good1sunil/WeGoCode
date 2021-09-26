@@ -1,0 +1,7 @@
+This file will tell you how to run the code and what has been covered.
+
+1. You will see the page object model in this project
+2. However you will be running only "FleetandDeport" file.
+	Right click on File->Run As->Test NG
+3. The file "WeGoAddOrderPage" contains all the locators and also the methods.
+4. I have written all the methods in WeGoAddOrderPage.java file and those method I called out in FleetandDeport.

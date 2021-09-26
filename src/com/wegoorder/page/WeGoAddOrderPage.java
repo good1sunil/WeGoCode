@@ -1,6 +1,9 @@
 package com.wegoorder.page;
 
 import java.util.Set;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.concurrent.TimeUnit;
 import java.util.List;
 import org.openqa.selenium.By;
@@ -11,6 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.opencsv.CSVReader;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
@@ -24,7 +30,7 @@ public class WeGoAddOrderPage
 
 {
 	WebDriver driver;
-
+	By StepOne= By.xpath("//div[@id='button-step-1']");
 	By Skip = By.xpath("//*[text()='Skip']");
 	By CompName = By.xpath("//*[text()='Company name']");
 	By Depot = By.id("input-depot-loca");
@@ -43,6 +49,12 @@ public class WeGoAddOrderPage
 	By DeleteOrder = By.xpath("//div[contains(@id,'button-remove-order')]");
 	By AddressDropdown = By.xpath("//input[@placeholder='Type address here, including the city...']");
 	By AdressOptionsList = By.xpath("//div[@class='css-1b82f32']");
+	By ImportButton= By.xpath("//div[@id='button-orders-mode-Import']");
+	By ImportButton_New=By.xpath("//*[@id='input-file-upload']");
+	By BrowseFile=By.xpath("//div/label[.='Browse files']");
+	By CSVSaveButton= By.xpath("(//div/strong[@class='css-1vqbjte'])[1]");
+	By BrowserfileButon=By.xpath("//div[@id='react-file-drop-demo']");
+	
 
 	public WeGoAddOrderPage(WebDriver driver) {
 		this.driver = driver;
@@ -53,9 +65,13 @@ public class WeGoAddOrderPage
 	}
 
 	public void FleetandDepot() {
-		// driver.findElement(CompName).click();
-		// WebDriverWait wait = new WebDriverWait(driver,10);
-		// driver.findElement(CompName).sendKeys("Flipkart");
+		
+		driver.findElement(StepOne).click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.findElement(CompName).click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.findElement(CompName).sendKeys("Flipkart");
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.findElement(Depot).sendKeys("Rohan");
 		Select objSelect = new Select(driver.findElement(DepoDropdown));
 		objSelect.selectByIndex(0);
@@ -111,5 +127,32 @@ public class WeGoAddOrderPage
 		} else {
 			System.out.println("tour is not created");
 		}
+	}
+	
+	public void csvOrders() throws FileNotFoundException
+	{
+		/*String csvFile = "csv\\here-wego-deliver.csv";
+		File srcFile = new File(csvFile);
+        String path = srcFile .getAbsolutePath();
+        System.out.println("Path: "+path);*/
+       
+		WebDriverWait wait=new WebDriverWait(driver, 20); 
+		WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(BrowseFile));
+		driver.findElement(BrowseFile).click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.switchTo().activeElement().sendKeys("C:\\Users\\Sunil\\here-wego-deliver-template.csv");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.findElement(CSVSaveButton).click();
+		
+		
+		/*String expectedFile=driver.findElement(BrowseFile).getAttribute("value");
+		if(expectedFile.equalsIgnoreCase("here-wego-deliver-template.csv"))
+		{
+			System.out.println("File Uploaded Sucessfully");
+		}*/
+		    
+	        	
+	        
+		
 	}
 }
