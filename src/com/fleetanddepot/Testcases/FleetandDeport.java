@@ -14,31 +14,28 @@ import com.wegoorder.page.WeGoAddOrderPage;
  * @author Sunil
  *
  */
-public class FleetandDeport 
-{
-	
+public class FleetandDeport {
+
 	@Test
-	public  void FleetandDepot()
-	{
-		System.setProperty("webdriver.chrome.driver","C://Users//Sunil//Downloads//chromedriver_win32//chromedriver.exe");
-		WebDriver driver=new ChromeDriver();
+	public void FleetandDepot() {
+		System.setProperty("webdriver.chrome.driver",
+				"C://Users//Sunil//Downloads//chromedriver_win32//chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://wegodeliver.here.com/");
-		
-		WeGoAddOrderPage Fleet= new WeGoAddOrderPage(driver);
+
+		WeGoAddOrderPage Fleet = new WeGoAddOrderPage(driver);
 		Fleet.Skip();
 		driver.findElement(By.xpath("//*[@id='button-fleet-next']")).click();
-		//Fleet.FleetandDepot();
+		// Fleet.FleetandDepot();
 		Fleet.AddOrderManual();
 		Fleet.TourCheck();
 		driver.quit();
 	}
-	
-	/*@Test
-	public void VerifyAddOrder()
-	{
-		WeGoAddOrderPage AddOrder= new WeGoAddOrderPage(driver);
-		AddOrder.AddOrderManual();
-	}*/
-	
+
+	/*
+	 * @Test public void VerifyAddOrder() { WeGoAddOrderPage AddOrder= new
+	 * WeGoAddOrderPage(driver); AddOrder.AddOrderManual(); }
+	 */
+
 }

@@ -11,17 +11,14 @@ import com.wegoorder.page.WeGoAddOrderPage;
  * @author Sunil
  *
  */
-public class VerifyAddManualOrder 
-{
+public class VerifyAddManualOrder {
 	@Test
-	public void VerifyAddOrder()
-	{
-		WebDriver driver=new ChromeDriver();
+	public void VerifyAddOrder() {
+		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://wegodeliver.here.com/");
-		WeGoAddOrderPage AddOrder= new WeGoAddOrderPage(driver);
+		WeGoAddOrderPage AddOrder = new WeGoAddOrderPage(driver);
 		AddOrder.AddOrderManual();
 		driver.quit();
 	}
 }
- 
