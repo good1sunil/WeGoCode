@@ -1,8 +1,11 @@
 This file will tell you how to run the code and what has been covered.
 
-1. You will see the page object model in this project
-2. However you will be running only "FleetandDeport" file.
-	Right click on File->Run As->Test NG
+Pre Requisite :  Make sure you have all the jars and TestNG  set up on your Eclipse on local machine
+
+
+1. You will see the page object model in this project. However Not able to implement fully. 
+2. You will be running only "FleetandDeport" file.
+	    Right click on File->Run As->Test NG
 3. The file "WeGoAddOrderPage" contains all the locators and also the methods.
 4. I have written all the methods in WeGoAddOrderPage.java file and those method I called out in FleetandDeport.
 5. For csv file. I have tried to upload it from source code only but somehow it's not working .So I selected the file from my local machine. So you have to update the path in the WeGoAddOrderPage.java file 
