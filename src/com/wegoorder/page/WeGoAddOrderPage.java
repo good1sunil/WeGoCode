@@ -183,7 +183,7 @@ public class WeGoAddOrderPage
 		
 		
 		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		  driver.findElement(ImportTab).click();
+		 // driver.findElement(ImportTab).click();
 		String s = new String("C:\\\\Users\\\\Sunil\\\\here-wego-deliver-template.csv");
 		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -196,7 +196,11 @@ public class WeGoAddOrderPage
 	    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	    robot.keyPress(java.awt.event.KeyEvent.VK_ENTER);
 	    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-	    driver.findElement(CSVSaveButton).isDisplayed();
+	    if(driver.findElement(CSVSaveButton).isDisplayed())
+	    {
+	    	System.out.println();
+	    }
+	    
 	    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	    driver.findElement(CSVSaveButton).click();
 	    System.out.println("File Uploaded");
