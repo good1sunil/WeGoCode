@@ -5,3 +5,6 @@ This file will tell you how to run the code and what has been covered.
 	Right click on File->Run As->Test NG
 3. The file "WeGoAddOrderPage" contains all the locators and also the methods.
 4. I have written all the methods in WeGoAddOrderPage.java file and those method I called out in FleetandDeport.
+5. For csv file. I have tried to upload it from source code only but somehow it's not working .So I selected the file from my local machine. So you have to update the path in the WeGoAddOrderPage.java file 
+
+      String s = new String("Your Machine path for csv");

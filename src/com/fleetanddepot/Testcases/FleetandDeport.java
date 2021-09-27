@@ -3,6 +3,7 @@
  */
 package com.fleetanddepot.Testcases;
 
+import java.awt.AWTException;
 import java.io.FileNotFoundException;
 
 import org.openqa.selenium.By;
@@ -19,7 +20,7 @@ import com.wegoorder.page.WeGoAddOrderPage;
 public class FleetandDeport {
 
 	@Test
-	public void FleetandDepot() throws FileNotFoundException {
+	public void FleetandDepot() throws FileNotFoundException, AWTException {
 		System.setProperty("webdriver.chrome.driver",
 				"C://Users//Sunil//Downloads//chromedriver_win32//chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -28,17 +29,12 @@ public class FleetandDeport {
 
 		WeGoAddOrderPage Fleet = new WeGoAddOrderPage(driver);
 		Fleet.Skip();
-		driver.findElement(By.xpath("//*[@id='button-fleet-next']")).click();
-	    //Fleet.FleetandDepot();
-		//Fleet.csvOrders();
-	      Fleet.AddOrderManual();
-		//Fleet.TourCheck();
+		//driver.findElement(By.xpath("//*[@id='button-fleet-next']")).click();
+	    Fleet.FleetandDepot();
+		Fleet.csvOrders();
+	    Fleet.AddOrderManual();
+		Fleet.TourCheck();
 		driver.quit();
 	}
-
-	/*
-	 * @Test public void VerifyAddOrder() { WeGoAddOrderPage AddOrder= new
-	 * WeGoAddOrderPage(driver); AddOrder.AddOrderManual(); }
-	 */
 
 }
